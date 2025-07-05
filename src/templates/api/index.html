@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DataX API Endpoints</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f7f9fc;
+    color: #222;
+    margin: 0; padding: 0;
+  }
+  header {
+    background-color: #222f3e;
+    color: #f5f6fa;
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 2rem;
+  }
+  main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  ul.api-list {
+    list-style: none;
+    padding: 0;
+  }
+  ul.api-list li {
+    background: white;
+    margin-bottom: 1.2rem;
+    padding: 1.2rem 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  }
+  .endpoint {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #0984e3;
+  }
+  .desc {
+    margin-top: 0.4rem;
+    color: #555;
+    font-size: 0.95rem;
+  }
+  footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #888;
+    background: #dfe6e9;
+    margin-top: 3rem;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>DataX API Endpoints</h1>
+  <p>Browse all available API endpoints.</p>
+</header>
+<main>
+  <ul class="api-list" id="api-list"></ul>
+</main>
+<footer>
+  &copy; 2025 DataX
+</footer>
+<script>
+  // List of supported APIs and their endpoints
+  const apis = [
+    {
+      name: "Population Data API",
+      description: "Access live, historical, and forecast population statistics worldwide.",
+      endpoints: [
+        { path: "/api/population/{country}", desc: "Full population data for a country" },
+        { path: "/api/population/live/{country}", desc: "Live population count" },
+        { path: "/api/population/historical/{country}", desc: "Historical population data" },
+        { path: "/api/population/forecast/{country}", desc: "Forecast population data" }
+      ]
+    },
+    {
+      name: "Weather Data API",
+      description: "Retrieve current weather and forecasts for cities globally.",
+      endpoints: [
+        { path: "/api/weather/{city}", desc: "Current weather data" },
+        { path: "/api/weather/forecast/{city}", desc: "Weather forecast data" }
+      ]
+    },
+    // Add more APIs here as your platform grows
+  ];
+
+  const apiListEl = document.getElementById('api-list');
+
+  apis.forEach(api => {
+    const li = document.createElement('li');
+
+    const apiTitle = document.createElement('div');
+    apiTitle.style.fontWeight = '700';
+    apiTitle.style.fontSize = '1.2rem';
+    apiTitle.style.marginBottom = '0.25rem';
+    apiTitle.textContent = api.name;
+
+    const apiDesc = document.createElement('div');
+    apiDesc.style.color = '#666';
+    apiDesc.style.marginBottom = '0.75rem';
+    apiDesc.textContent = api.description;
+
+    const endpointsUl = document.createElement('ul');
+    endpointsUl.style.paddingLeft = '20px';
+    endpointsUl.style.marginTop = '0';
+
+    api.endpoints.forEach(ep => {
+      const epLi = document.createElement('li');
+      epLi.style.marginBottom = '0.4rem';
+      epLi.innerHTML = `<code>${ep.path}</code> — ${ep.desc}`;
+      endpointsUl.appendChild(epLi);
+    });
+
+    li.appendChild(apiTitle);
+    li.appendChild(apiDesc);
+    li.appendChild(endpointsUl);
+
+    apiListEl.appendChild(li);
+  });
+</script>
+</body>
+</html>

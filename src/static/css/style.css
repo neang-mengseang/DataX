@@ -1,0 +1,232 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #121212;
+  color: #eee;
+  line-height: 1.6;
+}
+
+/* Header & Navigation */
+header {
+  background: #1e1e1e;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #00ffff;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #eee;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00ffff;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #00ffff 0%, #007f7f 100%);
+  color: #121212;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.btn-primary {
+  background: #121212;
+  color: #00ffff;
+  padding: 0.75rem 2rem;
+  font-weight: 700;
+  border-radius: 40px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  box-shadow: 0 0 15px #00ffff;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #00ffff;
+  color: #121212;
+  box-shadow: 0 0 30px #00ffff;
+}
+
+/* Features Section */
+.features-section {
+  padding: 4rem 2rem;
+  background: #1a1a1a;
+  text-align: center;
+}
+
+.features-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #00ffff;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 2rem;
+}
+
+.feature {
+  background: #222;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0,255,255,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px #00ffff;
+}
+
+.feature h3 {
+  color: #00ffff;
+  margin-bottom: 1rem;
+}
+
+/* APIs Section */
+.apis-section {
+  padding: 4rem 2rem;
+  background: #121212;
+  color: #eee;
+  text-align: center;
+}
+
+.apis-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #00ffff;
+}
+
+.api-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.api-list li {
+  background-color: #1e1e2f;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+
+.api-list li:hover {
+  transform: translateY(-3px);
+}
+
+.api-desc {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: 0.5rem;
+}
+
+.api-desc a {
+  color: #6cf;
+  text-decoration: underline;
+}
+
+
+/* Contact Section */
+.contact-section {
+  padding: 3rem 2rem;
+  background: #1a1a1a;
+  text-align: center;
+  color: #ccc;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00ffff;
+}
+
+.contact-section a {
+  color: #00ffff;
+  text-decoration: underline;
+}
+
+.contact-section a:hover {
+  color: #0ff;
+}
+
+/* Footer */
+footer {
+  padding: 1.5rem 2rem;
+  text-align: center;
+  background: #121212;
+  color: #666;
+  font-size: 0.9rem;
+  border-top: 1px solid #222;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
