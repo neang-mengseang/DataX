@@ -162,7 +162,6 @@ MIT License
 
 ---
 
-*Made with ❤️ by Twilight*
+*Made with ❤️ by Xeleste*
 
-```
 
