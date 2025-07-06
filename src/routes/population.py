@@ -1,10 +1,10 @@
+import traceback
 from flask import Blueprint, jsonify
 from scrapers.worldometers import (
     scrape_country_population,
     scrape_world_population,
     scrape_world_population_ranking
 )
-import traceback
 
 population_bp = Blueprint('population', __name__)
 
