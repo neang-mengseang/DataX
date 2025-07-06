@@ -1,6 +1,6 @@
 
 
-# Population Data Scraper & API
+# DataX ( Temporary name )
 
 This project scrapes world and country population data from [Worldometers](https://www.worldometers.info/) using Playwright and BeautifulSoup, and exposes REST API endpoints via Flask for easy consumption.
 
