@@ -3,9 +3,11 @@ from scrapers.worldometers.scraper import scrape_country_population  # make sure
 
 app = Flask(__name__, template_folder='./templates')
 
+import traceback
+
 @app.route("/api/<source>/<category>/<target>", methods=["GET"])
 def get_population(source, category, target):
-    country = target.strip().lower()  # use the URL path param directly
+    country = target.strip().lower()
     if not country:
         return jsonify({
             "error": "Missing 'target' URL parameter",
@@ -24,12 +26,14 @@ def get_population(source, category, target):
 
         data = scrape_country_population(country)
         return jsonify({"data": data})
+
     except ValueError as ve:
         return jsonify({"error": str(ve)}), 404
     except Exception as e:
-        print(f"[ERROR] {e}")  # Log server-side error
+        # Log full traceback for debugging
+        print("[ERROR]", traceback.format_exc())
         return jsonify({"error": "Internal server error"}), 500
-
+        
 @app.route("/")
 def home():
     return render_template('index.html')  # loads src/templates/index.html
