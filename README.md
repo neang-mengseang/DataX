@@ -1,5 +1,5 @@
 
-````markdown
+
 # Population Data Scraper & API
 
 This project scrapes world and country population data from [Worldometers](https://www.worldometers.info/) using Playwright and BeautifulSoup, and exposes REST API endpoints via Flask for easy consumption.
