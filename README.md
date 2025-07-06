@@ -89,9 +89,9 @@ You should see output indicating the server is running, e.g.:
 
 | Endpoint                         | Method | Description                        |
 | -------------------------------- | ------ | ---------------------------------- |
-| `/api/population/world`          | GET    | Get current world population stats |
-| `/api/population/world/ranking`  | GET    | Get population rankings by country |
-| `/api/population/country/<name>` | GET    | Get population data for a country  |
+| `/api/v1/population/world`          | GET    | Get current world population stats |
+| `/api/v1/population/world/ranking`  | GET    | Get population rankings by country |
+| `/api/v1/population/country/<name>` | GET    | Get population data for a country  |
 
 ---
 
