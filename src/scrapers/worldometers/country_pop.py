@@ -1,5 +1,5 @@
 from playwright.sync_api import sync_playwright
-import pandas as pd
+from scrapers.worldometers.scrape import normalize_header, clean_value
 
 def normalize_header(h):
     h = h.strip()
@@ -67,7 +67,6 @@ def scrape_country_population(country: str):
             browser.close()
             raise ValueError(f"Could not find the population data element for '{country}': {e}")
 
-        # Select all tables with class datatable (historical and forecast)
         table_selector = 'table.datatable'
         try:
             page.wait_for_selector(table_selector, timeout=10000)
@@ -144,3 +143,4 @@ def scrape_country_population(country: str):
             "historical_population": historical_data,
             "forecast_population": forecast_data
         }
+
