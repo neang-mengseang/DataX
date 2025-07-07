@@ -1,14 +1,11 @@
-# Base image
 FROM python:3.12-slim
 
-# Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# Set working directory
 WORKDIR /app
 
-# Install system dependencies for Playwright
+# System dependencies for Playwright
 RUN apt-get update && apt-get install -y \
     wget curl gnupg unzip git \
     libglib2.0-0 libnss3 libgconf-2-4 libfontconfig1 libxss1 libasound2 libxtst6 \
@@ -17,19 +14,14 @@ RUN apt-get update && apt-get install -y \
     libatspi2.0-0 libx11-6 libxext6 libxfixes3 libxcb1 libxkbcommon0 \
     --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements and install Python packages
+# Install Python deps
 COPY requirements.txt .
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN python3 -m pip install --upgrade pip && \
+    python3 -m pip install -r requirements.txt && \
+    playwright install --with-deps
 
-# Install Playwright browser dependencies
-RUN playwright install --with-deps
-
-# Copy the full project
 COPY . .
 
-# Expose port for Railway
 EXPOSE 8080
 
-# Run the Flask app via Gunicorn
 CMD ["gunicorn", "--bind", "0.0.0.0:8080", "src.app:app"]
