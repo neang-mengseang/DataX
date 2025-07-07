@@ -141,6 +141,6 @@ def scrape_country_population(country: str):
             "live_population": live_population,
             "stats": stats,
             "historical_population": historical_data,
-            "forecast_population": forecast_data
+            "forecast_population": forecast_data,
         }
 
