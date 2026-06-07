@@ -1,6 +1,9 @@
 
 
-# DataX ( Temporary name )
+# DataX 
+DataX is a web scraping engine and REST API designed to extract and serve real-time demographic data from Worldometers. It leverages a dual-strategy scraping approach—using Playwright for dynamic, JavaScript-rendered content and BeautifulSoup for static data—to provide structured JSON access to world population statistics and country rankings.
+
+The project is built with a decoupled architecture, separating the scraping logic from the Flask delivery layer, making it easy to extend with new data sources or API endpoints.
 
 This project scrapes world and country population data from [Worldometers](https://www.worldometers.info/) using Playwright and BeautifulSoup, and exposes REST API endpoints via Flask for easy consumption.
 
